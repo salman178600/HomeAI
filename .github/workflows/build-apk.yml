@@ -14,50 +14,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Create Android app
-        run: |
-          mkdir homeai
-          cd homeai
-          npm init -y
-          npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "HomeAI" "com.homeai.services" --web-dir=www
-          mkdir www
-          cat > www/index.html <<'EOF'
-          <!doctype html>
-          <html>
-          <head>
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <title>HomeAI</title>
-          </head>
-          <body style="margin:0">
-            <iframe
-              src="https://business-ai-agent-vercel-fixed-v3-g.vercel.app/"
-              style="width:100%;height:100vh;border:0"
-              allow="camera; microphone">
-            </iframe>
-          </body>
-          </html>
-          EOF
-          npx cap add android
-          npx cap sync android
-
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 17
+          java-version: '17'
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
 
       - name: Build APK
-        working-directory: homeai/android
-        run: ./gradlew assembleDebug
+        run: |
+          mkdir app
+          cd app
+          npm init -y
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+          mkdir www
+          printf '%s\n' '<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>HomeAI</title></head><body style="margin:0"><iframe src="https://business-ai-agent-vercel-fixed-v3-g.vercel.app/" style="width:100%;height:100vh;border:0"></iframe></body></html>' > www/index.html
+          npx cap init HomeAI com.homeai.services --web-dir=www
+          npx cap add android
+          npx cap sync android
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: HomeAI-APK
-          path: homeai/android/app/build/outputs/apk/debug/app-debug.apk
+          path: app/android/app/build/outputs/apk/debug/app-debug.apk
