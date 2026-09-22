@@ -1,1 +1,63 @@
+name: Build HomeAI APK
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Create Android app
+        run: |
+          mkdir homeai
+          cd homeai
+          npm init -y
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npx cap init "HomeAI" "com.homeai.services" --web-dir=www
+          mkdir www
+          cat > www/index.html <<'EOF'
+          <!doctype html>
+          <html>
+          <head>
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>HomeAI</title>
+          </head>
+          <body style="margin:0">
+            <iframe
+              src="https://business-ai-agent-vercel-fixed-v3-g.vercel.app/"
+              style="width:100%;height:100vh;border:0"
+              allow="camera; microphone">
+            </iframe>
+          </body>
+          </html>
+          EOF
+          npx cap add android
+          npx cap sync android
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build APK
+        working-directory: homeai/android
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: HomeAI-APK
+          path: homeai/android/app/build/outputs/apk/debug/app-debug.apk
