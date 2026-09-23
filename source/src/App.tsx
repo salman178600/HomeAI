@@ -243,7 +243,7 @@ export default function App() {
       {/* Main Container */}
       <main className="flex-1 min-h-0 overflow-hidden flex flex-col max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
         {/* AI Agent Features Banner */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 shrink-0">
           <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <Sparkles className="w-4 h-4" />
