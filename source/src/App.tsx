@@ -173,7 +173,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="h-screen overflow-hidden bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
       {/* Top Application Bar */}
       <header className="bg-white border-b border-slate-200/80 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -241,7 +241,7 @@ export default function App() {
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 min-h-0 overflow-hidden flex flex-col max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
         {/* AI Agent Features Banner */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center gap-3">
@@ -286,7 +286,7 @@ export default function App() {
         </div>
 
         {/* 2-Column Responsive Workspace */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 gap-y-4 flex-1 min-h-0 overflow-hidden">
           {/* Left / Main Column: Live Customer Chat Interface */}
           <div className="lg:col-span-7 xl:col-span-8">
             <ChatInterface
