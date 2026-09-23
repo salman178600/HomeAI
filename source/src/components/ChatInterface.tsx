@@ -45,7 +45,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   return (
     <div
       id="business-chat-container"
-      className="bg-white rounded-2xl border border-slate-200/90 shadow-xs flex flex-col h-[640px] overflow-hidden"
+      className="bg-white rounded-2xl border border-slate-200/90 shadow-xs flex flex-col h-full min-h-0 overflow-hidden"
     >
       {/* Chat Top Bar */}
       <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
