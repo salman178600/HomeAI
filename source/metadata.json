@@ -1,0 +1,7 @@
+{
+  "name": "All-in-One Home Services",
+  "description": "All-in-one home services lead collector for plumber, electrician, carpenter, painter, AC, and home appliance maintenance with English and Hinglish AI replies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

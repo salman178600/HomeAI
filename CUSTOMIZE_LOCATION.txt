@@ -1,0 +1,9 @@
+source/src/App.tsx:212:              <span className="hidden sm:inline">Customize Business</span>
+source/src/App.tsx:213:              <span className="sm:hidden">Customize</span>
+source/src/components/BusinessCustomizationModal.tsx:97:                Customize Business Information
+source/src/components/BusinessCustomizationModal.tsx:101:              Customize the AI Agent for your business. The AI strictly uses ONLY these fields.
+source/src/components/BusinessKnowledgeModal.tsx:88:                    <span>Customize Fields</span>
+source/src/components/BusinessKnowledgeModal.tsx:120:                          {isConfigured ? 'Customized' : 'Placeholder (Empty)'}
+source/src/components/LiveLeadStatus.tsx:157:              id="customize-business-btn"
+source/src/components/LiveLeadStatus.tsx:162:              <span>Customize</span>
+source/src/components/LiveLeadStatus.tsx:207:                      {field.isFilled ? 'Customized' : 'Placeholder (Empty)'}
