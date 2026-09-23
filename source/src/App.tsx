@@ -314,7 +314,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-200/80 py-4 px-6 text-center text-xs text-slate-500">
+      <footer className="shrink-0 bg-white border-t border-slate-200/80 py-3 px-6 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>{businessProfile.name} • AI Business Assistant</span>
           <span>English & Hinglish AI replies • Zero invention • Customizable for any business</span>
