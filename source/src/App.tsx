@@ -204,6 +204,7 @@ export default function App() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <button
+              className="hidden"
               id="open-customization-header-btn"
               onClick={() => setIsCustomizationOpen(true)}
               className="text-xs font-medium text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100/80 px-3 py-2 rounded-xl border border-blue-200/90 transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
