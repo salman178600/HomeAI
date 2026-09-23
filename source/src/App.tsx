@@ -215,6 +215,7 @@ export default function App() {
             </button>
 
             <button
+              className="hidden"
               id="open-knowledge-header-btn"
               onClick={() => setIsKnowledgeOpen(true)}
               className="text-xs font-medium text-slate-700 hover:text-slate-950 bg-slate-100 hover:bg-slate-200/80 px-3 py-2 rounded-xl border border-slate-200/80 transition-colors flex items-center gap-1.5 cursor-pointer"
